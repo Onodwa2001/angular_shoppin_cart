@@ -1,0 +1,21 @@
+<div *ngIf="items.length > 0 then displayItems else displayDefaultMessage"></div>
+
+<ng-template #displayItems>
+    <section>
+        <h1>All Items</h1>
+        <div class="items">
+            <div *ngFor="let item of items" class="item" data-toggle="modal" data-target="#exampleModal" (click)="sendDataToParentComponent(item)">
+                <img src="{{ item.image }}" height="300px" width="100%" alt="">
+                <div class="item-details">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.price | currency: 'ZAR' }}</p>
+                    <p>Rating: {{ item.rating.rate }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>
+<ng-template #displayDefaultMessage>
+    <h1>No items to display</h1>
+</ng-template>
+

@@ -1,0 +1,17 @@
+.quantity-adjust {
+    display: flex;
+}
+
+.quantity-adjust div {
+    padding: 5px 10px 5px 10px;
+    border: solid rgb(212, 208, 208) 1px;
+    margin: 10px 10px 10px 0px;
+}
+
+.increment:hover {
+    cursor: pointer;
+}
+
+.decrement:hover {
+    cursor: pointer;
+}

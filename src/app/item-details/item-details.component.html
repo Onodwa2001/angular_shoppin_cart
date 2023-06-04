@@ -1,0 +1,52 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ cartResuts.title }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="image">
+                    <img src="{{ cartResuts.image }}" height="200px" width="150px" alt="">
+                </div>
+                <br/>
+                <div><b>Price:</b> {{ cartResuts.price | currency: 'ZAR' }}</div>
+                <div><b>Rating:</b> {{ cartResuts.rating.rate }}</div>
+                <div><b>Description:</b> {{ cartResuts.description }}</div>
+                <div class="quantity-adjust">
+                    <div class="decrement" (click)="decrement()">-</div>
+                    <div class="qty">{{ qty }}</div>
+                    <div class="increment" (click)="increment()">+</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="addToCart(cartResuts)" data-toggle="modal" data-target="#successModal" data-dismiss="modal" aria-label="Close">Add item to cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Item successfully added to cart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <a routerLink="/cart" data-dismiss="modal">view cart</a> to see your items
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary">Close</button> -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="cartItems">
+    <!-- <h2>Items in cart</h2> -->
+    <div class="products">
+        <table>
+            <tr>
+                <th>PRODUCT</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+            </tr>
+            <tr *ngFor="let item of cartItems">
+                <td><img src="{{ item.image }}" height="70px" width="60px" /> {{ item.title }}</td>
+                <td>
+                    <div>{{ item.price * item.qty | currency: 'ZAR' }}</div>
+                    <div style="font-size: small;">each: {{ item.price | currency: 'ZAR' }}</div>
+                </td>
+                <td>
+                    <div class="quantity-adjust">
+                        <div class="decrement" (click)="decrement(item.id); countItems()">-</div>
+                        <div class="qty">{{ item.qty }}</div>
+                        <div class="increment" (click)="increment(item.id); countItems()">+</div>
+                    </div>
+                </td>
+                <td><button class="remove-btn" (click)="removeItem(item.id)">Remove</button></td>
+            </tr>
+            <tr>
+                <td><a routerLink="/home">Continue Shopping</a></td>
+                <td>total: {{ balance | currency: 'ZAR' }}</td>
+                <td><button (click)="clearCart()">Clear cart</button></td>
+                <td><button>Make purchase</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
